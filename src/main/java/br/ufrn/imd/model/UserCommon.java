@@ -3,8 +3,8 @@ package br.ufrn.imd.model;
 public class UserCommon extends User{
     private String directory;
 
-    public UserCommon(String name, String email, String username, String password) {
-        super(name, email, username, password);
+    public UserCommon(String email, String username, String password) {
+        super(email, username, password);
     }
 
     public String getDirectory() {

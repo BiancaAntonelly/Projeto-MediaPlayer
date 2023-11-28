@@ -1,25 +1,16 @@
 package br.ufrn.imd.model;
 
 public abstract class User {
-    private String name;
     private String email;
     private String username;
     private String password;
 
-    public User(String name, String email, String username, String password) {
-        this.name = name;
+    public User(String email, String username, String password) {
         this.email = email;
         this.username = username;
         this.password = password;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public String getEmail() {
         return email;

@@ -6,8 +6,8 @@ import java.util.Map;
 public class UserVip extends User{
     private Map<String, Playlist> playlists;
 
-    public UserVip(String name, String email, String username, String password) {
-        super(name, email, username, password);
+    public UserVip(String email, String username, String password) {
+        super(email, username, password);
         this.playlists = new HashMap<>();
     }
 

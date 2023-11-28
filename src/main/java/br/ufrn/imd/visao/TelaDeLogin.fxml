@@ -12,8 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.visao.TelaDeLogin">
+<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeLoginController">
    <children>
       <VBox layoutX="448.0" layoutY="139.0" prefHeight="421.0" prefWidth="415.0" style="-fx-background-color: #FFFFE0;">
          <children>
@@ -24,7 +23,7 @@
             </Text>
             <VBox prefHeight="97.0" prefWidth="415.0">
                <children>
-                  <Label text="Email:">
+                  <Label text="Username:">
                      <font>
                         <Font size="20.0" />
                      </font>
