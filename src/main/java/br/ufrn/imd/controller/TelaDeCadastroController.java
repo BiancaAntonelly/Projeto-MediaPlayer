@@ -1,16 +1,24 @@
 package br.ufrn.imd.controller;
 
-import br.ufrn.imd.model.User;
+import br.ufrn.imd.model.UsuarioComum;
+import br.ufrn.imd.model.UsuarioVip;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
-import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 
 public class TelaDeCadastroController {
+
     @FXML
     private TextField emailField;
 
@@ -21,42 +29,88 @@ public class TelaDeCadastroController {
     private PasswordField senhaField;
 
     @FXML
+    private CheckBox usuarioComumCheckbox;
+
+    @FXML
+    private CheckBox usuarioVipCheckbox;
+
+    @FXML
     private Button criarContaButton;
 
     @FXML
-    void criarConta(ActionEvent event) {
-        // Obter os dados do formulário
+    void initialize() {
+        // Adiciona um listener para o evento de clique do botão
+        criarContaButton.setOnAction(event -> criarConta(event));
+    }
+
+    @FXML
+    void criarConta(javafx.event.ActionEvent event) {
+        System.out.println("Botão Criar Conta pressionado");
         String email = emailField.getText();
         String username = usernameField.getText();
         String senha = senhaField.getText();
 
-        // Criar um objeto Usuario
-        User user = new User(email, username, senha);
+        if (usuarioComumCheckbox.isSelected()) {
+            UsuarioComum usuarioComum = new UsuarioComum(email, username, senha);
+            salvarUsuario(email, username, senha, "usuario comum");
+        }
 
-        // Salvar os dados em um arquivo
-        salvarDados(user);
+        if (usuarioVipCheckbox.isSelected()) {
+            UsuarioVip usuarioVip = new UsuarioVip(email, username, senha);
+            // Adicione lógica específica para usuários VIP, se necessário
+            salvarUsuario(email, username, senha, "usuario vip");
+        }
 
-        // Limpar os campos após salvar
+        carregarPaginaLogin();
+
         limparCampos();
     }
 
-    private void salvarDados(User user) {
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter("dados_usuarios.txt", true))) {
-            // Escrever os dados do usuário no arquivo
-            writer.write(user.getEmail() + "\n");
-            writer.write(user.getUsername() + "\n");
-            writer.write(user.getSenha() + "\n");
+    private void salvarUsuario(String email, String username, String senha, String tipoUsuario) {
+        String caminhoArquivo = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
 
-            System.out.println("Dados do usuário salvos com sucesso.");
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo, true))) {
+            writer.write(email);
+            writer.newLine();
+            writer.write(username);
+            writer.newLine();
+            writer.write(senha);
+            writer.newLine();
+            writer.write(tipoUsuario);
+            writer.newLine();
+
+            System.out.println("Conta do usuário criada e salva com sucesso.");
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+
+    private void carregarPaginaLogin() {
+        try {
+            // Obtenha o caminho absoluto para o arquivo FXML
+            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\visao\\TelaDeLogin.fxml";
+
+            // Carregar a cena de login
+            Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
+
+            // Configurar o palco
+            Stage stage = (Stage) criarContaButton.getScene().getWindow();
+            Scene scene = new Scene(root);
+            stage.setScene(scene);
+            stage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
     private void limparCampos() {
-        // Limpar os campos do formulário
-        emailField.clear();
-        usernameField.clear();
-        senhaField.clear();
+        emailField.setText("");
+        usernameField.setText("");
+        senhaField.setText("");
+        usuarioComumCheckbox.setSelected(false);
+        usuarioVipCheckbox.setSelected(false);
     }
 }

@@ -1,17 +1,17 @@
 package br.ufrn.imd.controller;
 
-import br.ufrn.imd.model.User;
+import br.ufrn.imd.model.Usuario;
 
 import java.util.Map;
 
 public class UserController {
-    private Map<String, User> users;
+    private Map<String, Usuario> users;
 
-    public void registerUser(User user) {
+    public void registerUser(Usuario user) {
     }
 
     public boolean authenticateUser(String username, String password) {
-        User user = users.get(username);
+        Usuario user = users.get(username);
         return user != null && user.getPassword().equals(password);
     }
 }

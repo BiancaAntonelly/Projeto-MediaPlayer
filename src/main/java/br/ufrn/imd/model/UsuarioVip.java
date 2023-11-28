@@ -3,10 +3,10 @@ package br.ufrn.imd.model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class UserVip extends User{
+public class UsuarioVip extends Usuario {
     private Map<String, Playlist> playlists;
 
-    public UserVip(String email, String username, String password) {
+    public UsuarioVip(String email, String username, String password) {
         super(email, username, password);
         this.playlists = new HashMap<>();
     }

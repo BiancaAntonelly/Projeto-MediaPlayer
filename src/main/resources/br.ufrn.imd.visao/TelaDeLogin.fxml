@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeLoginController">
+<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeLoginController">
    <children>
       <VBox layoutX="448.0" layoutY="139.0" prefHeight="421.0" prefWidth="415.0" style="-fx-background-color: #FFFFE0;">
          <children>
@@ -28,7 +28,13 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <TextField prefHeight="42.0" prefWidth="415.0" />
+                  <TextField prefHeight="42.0" prefWidth="415.0">
+                     <opaqueInsets>
+                        <Insets />
+                     </opaqueInsets>
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin></TextField>
                </children>
             </VBox>
             <VBox layoutX="10.0" layoutY="69.0" prefHeight="97.0" prefWidth="415.0">
@@ -38,10 +44,13 @@
                         <Font size="20.0" />
                      </font>
                   </Label>
-                  <PasswordField prefHeight="42.0" prefWidth="415.0" />
+                  <PasswordField prefHeight="42.0" prefWidth="415.0">
+                     <VBox.margin>
+                        <Insets right="5.0" />
+                     </VBox.margin></PasswordField>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #E10ECD;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -60,7 +69,7 @@
                   <Insets bottom="5.0" left="90.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #E10ECD;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
+            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -70,9 +79,9 @@
             </Button>
          </children>
       </VBox>
-      <ImageView fitHeight="422.0" fitWidth="327.0" layoutX="121.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="429.0" fitWidth="328.0" layoutX="120.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../img/Foto%20Media%20Player.png" />
+            <Image url="@../../java/br/ufrn/imd/img/Foto%20Media%20Player%20-%20Tela%20de%20Login.png" />
          </image>
       </ImageView>
    </children>
