@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.visao.TelaUsuario">
+   <children>
+      <MenuBar layoutX="14.0" layoutY="147.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Buscar">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="PlayList">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Editar">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <Label alignment="BOTTOM_LEFT" layoutX="519.0" layoutY="118.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="39.0" text="Nome">
+         <font>
+            <Font size="14.0" />
+         </font>
+         <rotationAxis>
+            <Point3D x="1.0" y="1.0" z="1.0" />
+         </rotationAxis>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="172.0" prefHeight="214.0" prefWidth="574.0" style="-fx-background-color: Gainsboro;" />
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="125.0" prefWidth="462.0" style="-fx-background-color: Gainsboro;">
+         <rotationAxis>
+            <Point3D />
+         </rotationAxis>
+         <children>
+            <Label layoutX="14.0" layoutY="14.0" prefHeight="21.0" prefWidth="70.0" text="Pesquisar">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Label>
+            <Button layoutX="245.0" layoutY="12.0" mnemonicParsing="false" text="Button" />
+            <TextField layoutX="84.0" layoutY="12.0" />
+         </children>
+      </AnchorPane>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1ff02e" height="104.0" layoutX="489.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+   </children>
+   <opaqueInsets>
+      <Insets right="100.0" top="100.0" />
+   </opaqueInsets>
+</AnchorPane>
