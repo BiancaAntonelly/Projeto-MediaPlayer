@@ -12,8 +12,10 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("/br.ufrn.imd.visao/TelaDeCadastro.fxml"));
-        primaryStage.setTitle("Tela de Cadastro");
+        Parent root = FXMLLoader.load(getClass().getResource("/br.ufrn.imd.visao/TelaDeInicio.fxml"));
+        primaryStage.setTitle("Tela de Inicio");
+        //Parent root = FXMLLoader.load(getClass().getResource("/br.ufrn.imd.visao/TelaDeCadastro.fxml"));
+        //primaryStage.setTitle("Tela de Login");
         primaryStage.setScene(new Scene(root, 800, 600));
         primaryStage.show();
     }

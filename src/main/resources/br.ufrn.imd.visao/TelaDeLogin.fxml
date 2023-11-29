@@ -50,7 +50,7 @@
                      </VBox.margin></PasswordField>
                </children>
             </VBox>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="entrarButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -69,7 +69,7 @@
                   <Insets bottom="5.0" left="90.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <Button mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="criarContaButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -77,11 +77,17 @@
                   <Insets left="135.0" top="5.0" />
                </VBox.margin>
             </Button>
+            <Text fx:id="mensagemErro" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER">
+               <font>
+                  <Font size="15.0" />
+               </font>
+            </Text>
+
          </children>
       </VBox>
       <ImageView fitHeight="429.0" fitWidth="328.0" layoutX="120.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../java/br/ufrn/imd/img/Foto%20Media%20Player%20-%20Tela%20de%20Login.png" />
+            <Image url="@../../java/br/ufrn/imd/img/Foto Media Player - Tela de Login.png" />
          </image>
       </ImageView>
    </children>

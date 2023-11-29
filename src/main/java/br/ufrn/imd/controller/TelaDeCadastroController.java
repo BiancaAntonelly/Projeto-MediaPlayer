@@ -88,13 +88,10 @@ public class TelaDeCadastroController {
 
     private void carregarPaginaLogin() {
         try {
-            // Obtenha o caminho absoluto para o arquivo FXML
-            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\visao\\TelaDeLogin.fxml";
+            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
 
-            // Carregar a cena de login
             Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
 
-            // Configurar o palco
             Stage stage = (Stage) criarContaButton.getScene().getWindow();
             Scene scene = new Scene(root);
             stage.setScene(scene);
