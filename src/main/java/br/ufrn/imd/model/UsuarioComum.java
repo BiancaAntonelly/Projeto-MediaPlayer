@@ -1,9 +1,9 @@
 package br.ufrn.imd.model;
 
-public class UserCommon extends User{
+public class UsuarioComum extends Usuario {
     private String directory;
 
-    public UserCommon(String email, String username, String password) {
+    public UsuarioComum(String email, String username, String password) {
         super(email, username, password);
     }
 

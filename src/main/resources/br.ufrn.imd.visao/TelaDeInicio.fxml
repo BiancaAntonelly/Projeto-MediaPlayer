@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f; " xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeInicioController">
+    <children>
+        <VBox layoutX="231.0" layoutY="192.0" prefHeight="421.0" prefWidth="415.0" style="-fx-background-color: #FFFFE0;">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Seja bem-vindo!" textAlignment="CENTER">
+                    <font>
+                        <Font size="44.0" />
+                    </font>
+               <VBox.margin>
+                  <Insets left="40.0" />
+               </VBox.margin>
+                </Text>
+                <VBox prefHeight="97.0" prefWidth="415.0">
+               <children>
+                  <Label text="Fazer Login:">
+                     <font>
+                        <Font size="24.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets left="5.0" top="10.0" />
+                     </VBox.margin>
+                  </Label>
+                   <Button fx:id="loginButton" mnemonicParsing="false" style="-fx-background-color: #e6316f; -fx-background-radius: 18px;" text="Login" onAction="#handleLoginButton">
+                       <VBox.margin>
+                           <Insets left="5.0" top="10.0" />
+                       </VBox.margin>
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="30.0" />
+               </VBox.margin>
+                </VBox>
+                <VBox layoutX="10.0" layoutY="69.0" prefHeight="97.0" prefWidth="415.0">
+               <children>
+                  <VBox prefHeight="97.0" prefWidth="415.0">
+                     <children>
+                        <Label text="Criar uma conta:">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                           <VBox.margin>
+                              <Insets left="5.0" top="10.0" />
+                           </VBox.margin>
+                        </Label>
+                         <Button fx:id="criarContaButton" mnemonicParsing="false" style="-fx-background-color: #e6316f; -fx-background-radius: 18px;" text="Cadastre-se" onAction="#handleCriarContaButton">
+                             <VBox.margin>
+                                 <Insets left="5.0" top="10.0" />
+                             </VBox.margin>
+                             <font>
+                                 <Font size="18.0" />
+                             </font>
+                         </Button>
+                     </children>
+                  </VBox>
+               </children>
+                </VBox>
+                <Text fx:id="mensagemErro" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER">
+                    <font>
+                        <Font size="15.0" />
+                    </font>
+                </Text>
+
+            </children>
+        </VBox>
+    </children>
+    <padding>
+        <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />
+    </padding>
+</AnchorPane>
