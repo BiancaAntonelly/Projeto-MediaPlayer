@@ -34,7 +34,7 @@ public class TelaDeLoginController {
         @FXML
         private Text mensagemErro;
 
-        @FXML
+        @FXMLDEUS 
         private void initialize() {
                 mensagemErro.setVisible(false);
         }
@@ -59,24 +59,26 @@ public class TelaDeLoginController {
         }
 
         private boolean autenticarUsuario(String username, String senha) {
-                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
 
                 try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
-                        String line;
-                        int lineNumber = 0;
+                        String email, usuario, senhaArmazenada, tipoUsuario;
 
-                        while ((line = reader.readLine()) != null) {
-                                if (lineNumber % 4 == 2 && line.trim().toLowerCase().equals(username)) {
-                                        String senhaArmazenada = reader.readLine();
-                                        return senha.equals(senhaArmazenada);
+                        while ((email = reader.readLine()) != null) {
+                                usuario = reader.readLine().toLowerCase();
+                                senhaArmazenada = reader.readLine();
+                                tipoUsuario = reader.readLine();
+
+                                if (usuario.equals(username) && senha.equals(senhaArmazenada)) {
+                                        return true; // Nome de usuário e senha coincidem
                                 }
-                                lineNumber++;
                         }
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
                 return false;
         }
+
 
         private void carregarPagina(String fxmlPath, String title) {
                 try {
