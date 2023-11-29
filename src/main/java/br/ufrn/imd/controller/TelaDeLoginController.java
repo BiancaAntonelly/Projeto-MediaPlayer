@@ -11,8 +11,11 @@ import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class TelaDeLoginController {
 
@@ -38,11 +41,12 @@ public class TelaDeLoginController {
 
         @FXML
         private void handleEntrar() {
+                System.out.println("Botão Entrar clicado!");
                 String username = tfUsername.getText().toLowerCase();
                 String senha = pfSenha.getText();
 
                 if (autenticarUsuario(username, senha)) {
-                        carregarProximaCena("C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml");
+                        carregarPagina("TelaDeInicio.fxml", "Tela de Inicio");
                 } else {
                         mensagemErro.setVisible(true);
                         mensagemErro.setText("Nome de usuário ou senha incorretos. Tente novamente.");
@@ -51,13 +55,16 @@ public class TelaDeLoginController {
 
         @FXML
         private void handleCriarConta() {
-                carregarProximaCena("C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeCadastro.fxml");
+                carregarPagina("TelaDeCadastro.fxml", "Cadastro");
         }
 
         private boolean autenticarUsuario(String username, String senha) {
-                try (BufferedReader reader = new BufferedReader(new FileReader("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt"))) {
+                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+
+                try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
                         String line;
                         int lineNumber = 0;
+
                         while ((line = reader.readLine()) != null) {
                                 if (lineNumber % 4 == 2 && line.trim().toLowerCase().equals(username)) {
                                         String senhaArmazenada = reader.readLine();
@@ -71,16 +78,21 @@ public class TelaDeLoginController {
                 return false;
         }
 
-        private void carregarProximaCena(String fxmlResource) {
+        private void carregarPagina(String fxmlPath, String title) {
                 try {
-                        FXMLLoader loader = new FXMLLoader(getClass().getResource(fxmlResource));
-                        Parent root = loader.load();
+                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\" + fxmlPath;
+
+                        Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
+
+                        Stage stage = (Stage) criarContaButton.getScene().getWindow();
                         Scene scene = new Scene(root);
-                        Stage stage = (Stage) entrarButton.getScene().getWindow();
                         stage.setScene(scene);
+                        stage.setTitle(title);
                         stage.show();
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
         }
+
 }
+

@@ -50,7 +50,7 @@
                      </VBox.margin></PasswordField>
                </children>
             </VBox>
-            <Button fx:id="entrarButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="entrarButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" onAction="#handleEntrar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
@@ -69,7 +69,7 @@
                   <Insets bottom="5.0" left="90.0" top="5.0" />
                </VBox.margin>
             </Label>
-            <Button fx:id="criarContaButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
+            <Button fx:id="criarContaButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE" onAction="#handleCriarConta" >
                <font>
                   <Font size="15.0" />
                </font>
