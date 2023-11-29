@@ -34,14 +34,13 @@ public class TelaDeLoginController {
         @FXML
         private Text mensagemErro;
 
-        @FXMLDEUS 
+        @FXML
         private void initialize() {
                 mensagemErro.setVisible(false);
         }
 
         @FXML
         private void handleEntrar() {
-                System.out.println("Botão Entrar clicado!");
                 String username = tfUsername.getText().toLowerCase();
                 String senha = pfSenha.getText();
 

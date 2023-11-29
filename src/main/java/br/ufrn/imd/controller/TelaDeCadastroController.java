@@ -45,7 +45,6 @@ public class TelaDeCadastroController {
 
     @FXML
     void criarConta(javafx.event.ActionEvent event) {
-        System.out.println("Botão Criar Conta pressionado");
         String email = emailField.getText();
         String username = usernameField.getText();
         String senha = senhaField.getText();
@@ -79,7 +78,6 @@ public class TelaDeCadastroController {
             writer.write(tipoUsuario);
             writer.newLine();
 
-            System.out.println("Conta do usuário criada e salva com sucesso.");
         } catch (IOException e) {
             e.printStackTrace();
         }

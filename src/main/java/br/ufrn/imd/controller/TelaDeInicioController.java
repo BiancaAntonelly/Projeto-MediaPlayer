@@ -19,13 +19,11 @@ public class TelaDeInicioController {
 
     @FXML
     private void handleLoginButton() {
-        System.out.println("Botão de Login clicado!");
         carregarPagina("TelaDeLogin.fxml", "Login");
     }
 
     @FXML
     private void handleCriarContaButton() {
-        System.out.println("Botão de Criar Conta clicado!");
         carregarPagina("TelaDeCadastro.fxml", "Cadastro");
     }
 
