@@ -1,7 +1,7 @@
 package br.ufrn.imd.model;
 
 public class Musica {
-    private String name, genero, cantor;
+    private String name, diretorio;
     private float tempo;
 
     public String getName() {
@@ -10,17 +10,12 @@ public class Musica {
     public void setName(String name) {
         this.name = name;
     }
-    public String getGenero() {
-        return genero;
+    
+    public String getDiretorio() {
+        return diretorio;
     }
-    public void setGenero(String genero) {
-        this.genero = genero;
-    }
-    public String getCantor() {
-        return cantor;
-    }
-    public void setCantor(String cantor) {
-        this.cantor = cantor;
+    public void setDiretorio(String diretorio) {
+        this.diretorio = diretorio;
     }
     public float getTempo() {
         return tempo;

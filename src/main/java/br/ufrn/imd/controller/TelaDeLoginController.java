@@ -34,7 +34,7 @@ public class TelaDeLoginController {
         @FXML
         private Text mensagemErro;
 
-        @FXMLDEUS 
+        @FXML
         private void initialize() {
                 mensagemErro.setVisible(false);
         }
