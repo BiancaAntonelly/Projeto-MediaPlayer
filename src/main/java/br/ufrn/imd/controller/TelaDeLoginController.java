@@ -41,7 +41,6 @@ public class TelaDeLoginController {
 
         @FXML
         private void handleEntrar() {
-                System.out.println("Botão Entrar clicado!");
                 String username = tfUsername.getText().toLowerCase();
                 String senha = pfSenha.getText();
 
