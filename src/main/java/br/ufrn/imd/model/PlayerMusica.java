@@ -3,20 +3,26 @@ package br.ufrn.imd.model;
 import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.util.ArrayList;
+import java.util.List;
+
 import javazoom.jl.player.Player;
 public class PlayerMusica {
-    private File musica;
+    private Musica musica;
+    private List<Musica> musicas = new ArrayList<>();
     private Player player;
     private boolean isPause = false;
+    private int pos = 0;
 
-    public PlayerMusica(File musica){
-        this.musica = musica;
+    public PlayerMusica(List<Musica> musicas){
+        this.musicas = musicas;
+        this.musica = musicas.get(0);
     }
 
     public void play(){
         new Thread(() -> {
             try {
-                FileInputStream fileInputStream = new FileInputStream(musica);
+                FileInputStream fileInputStream = new FileInputStream(musica.getDiretorio());
                 BufferedInputStream buffer = new BufferedInputStream(fileInputStream);
                 this.player = new Player(buffer);
                 System.out.println("Iniciando a música...");
@@ -28,7 +34,7 @@ public class PlayerMusica {
             }
         }).start();
     }
-    
+
     public void pause() {
         if(player != null) {
             try {
@@ -37,6 +43,38 @@ public class PlayerMusica {
             } catch(Exception e) {
                 e.printStackTrace();
                 System.out.println("Não foi possível pausar a música");
+            }
+        }
+    }
+
+    public void next() {
+        if(player != null) {
+           try {
+                new Thread(() -> {
+                    player.close();
+                    pos++;
+                    musica = musicas.get(pos);
+                    play();
+                }).start();
+           } catch (Exception e){
+                e.printStackTrace();
+                System.out.println("Não foi possível avançar para a próxima música");
+           } 
+        }
+    }
+
+    public void previous() {
+        if(player != null) {
+            try {
+                new Thread(() -> { 
+                    player.close();
+                    pos--;
+                    musica = musicas.get(pos);
+                    play();
+               }).start();
+            } catch(Exception e) {
+                e.printStackTrace();
+                System.out.println("Não foi possível voltar para a música anterior");
             }
         }
     }
