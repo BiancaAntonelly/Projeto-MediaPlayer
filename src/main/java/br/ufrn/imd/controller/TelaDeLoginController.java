@@ -1,5 +1,6 @@
 package br.ufrn.imd.controller;
 
+import br.ufrn.imd.model.Usuario;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -45,7 +46,7 @@ public class TelaDeLoginController {
                 String senha = pfSenha.getText();
 
                 if (autenticarUsuario(username, senha)) {
-                        carregarPagina("TelaDeInicio.fxml", "Tela de Inicio");
+                        carregarPagina("br.ufrn.imd.visao/TelaUsuario.fxml", "Tela de Inicio");
                 } else {
                         mensagemErro.setVisible(true);
                         mensagemErro.setText("Nome de usuário ou senha incorretos. Tente novamente.");
@@ -58,7 +59,7 @@ public class TelaDeLoginController {
         }
 
         private boolean autenticarUsuario(String username, String senha) {
-                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+                Path usuariosPath = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
 
                 try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
                         String email, usuario, senhaArmazenada, tipoUsuario;
@@ -81,7 +82,7 @@ public class TelaDeLoginController {
 
         private void carregarPagina(String fxmlPath, String title) {
                 try {
-                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\" + fxmlPath;
+                        String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
 
                         Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
 
@@ -95,5 +96,8 @@ public class TelaDeLoginController {
                 }
         }
 
+        private Usuario buscarUsuario(String name, String email) {
+                return  null;
+        }
 }
 

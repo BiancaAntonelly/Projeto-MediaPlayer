@@ -30,7 +30,7 @@ public class TelaDeInicioController {
 
     private void carregarPagina(String fxmlPath, String title) {
         try {
-            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\" + fxmlPath;
+            String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\" + fxmlPath;
 
             Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
 

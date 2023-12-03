@@ -6,28 +6,33 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.visao.TelaUsuario">
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaUsuarioController">
    <children>
-      <MenuBar layoutX="14.0" layoutY="147.0">
+      <MenuBar prefHeight="25.0" prefWidth="600.0">
         <menus>
-          <Menu mnemonicParsing="false" text="Buscar">
+          <Menu mnemonicParsing="false" text="Files">
             <items>
               <MenuItem mnemonicParsing="false" text="Close" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="PlayList">
+          <Menu mnemonicParsing="false" text="Player">
             <items>
               <MenuItem mnemonicParsing="false" text="Delete" />
             </items>
           </Menu>
-          <Menu mnemonicParsing="false" text="Editar">
+          <Menu mnemonicParsing="false" text="Edit">
             <items>
               <MenuItem mnemonicParsing="false" text="About" />
             </items>
           </Menu>
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Close" />
+               </items>
+            </Menu>
         </menus>
       </MenuBar>
-      <Label alignment="BOTTOM_LEFT" layoutX="519.0" layoutY="118.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="39.0" text="Nome">
+      <Label fx:id="UserName" alignment="BOTTOM_LEFT" layoutX="506.0" layoutY="131.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="76.0" style="-fx-font-weight: bold;" text="UserName" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -35,22 +40,32 @@
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <AnchorPane layoutX="14.0" layoutY="172.0" prefHeight="214.0" prefWidth="574.0" style="-fx-background-color: Gainsboro;" />
-      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="125.0" prefWidth="462.0" style="-fx-background-color: Gainsboro;">
-         <rotationAxis>
-            <Point3D />
-         </rotationAxis>
-         <children>
-            <Label layoutX="14.0" layoutY="14.0" prefHeight="21.0" prefWidth="70.0" text="Pesquisar">
-               <font>
-                  <Font size="15.0" />
-               </font>
-            </Label>
-            <Button layoutX="245.0" layoutY="12.0" mnemonicParsing="false" text="Button" />
-            <TextField layoutX="84.0" layoutY="12.0" />
-         </children>
-      </AnchorPane>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#ff1ff02e" height="104.0" layoutX="489.0" layoutY="14.0" stroke="BLACK" strokeType="INSIDE" width="99.0" />
+      <AnchorPane layoutX="136.0" layoutY="39.0" prefHeight="300.0" prefWidth="358.0" style="-fx-background-color: Gainsboro;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="92.0" layoutX="504.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <Label alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="107.0" style="-fx-font-weight: bold;" text="PlayLists" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
+      <Accordion layoutX="14.0" layoutY="69.0" prefHeight="75.0" prefWidth="92.0">
+        <panes>
+          <TitledPane animated="false" text="untitled 1">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" text="untitled 2">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+          <TitledPane animated="false" prefHeight="24.0" prefWidth="105.0" text="untitled 3">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+            </content>
+          </TitledPane>
+        </panes>
+      </Accordion>
    </children>
    <opaqueInsets>
       <Insets right="100.0" top="100.0" />

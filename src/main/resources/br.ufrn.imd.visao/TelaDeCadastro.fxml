@@ -13,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeCadastroController">
+<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeCadastroController">
     <children>
         <VBox layoutX="119.0" layoutY="139.0" prefHeight="422.0" prefWidth="546.0" style="-fx-background-color: #FFFFE0;">
             <children>

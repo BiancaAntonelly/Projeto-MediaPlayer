@@ -14,3 +14,7 @@ brenda@gmail.com
 brenda
 senha
 usuario vip
+vanessa.silva.700@ufrn.edu.br
+Vanessa Maria
+senha123
+usuario comum
