@@ -15,6 +15,6 @@ brenda
 senha
 usuario vip
 vanessa.silva.700@ufrn.edu.br
-Vanessa Maria
+Vanessa
 senha123
 usuario comum

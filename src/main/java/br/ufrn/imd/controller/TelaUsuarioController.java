@@ -2,21 +2,17 @@ package br.ufrn.imd.controller;
 
 import br.ufrn.imd.model.Usuario;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Label;
 
-import java.awt.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 public class TelaUsuarioController {
 
     @FXML
-    private Label userName ;
-
-    @FXML
-    private Usuario usuario;
-
-    @FXML
-    private void initialize() {
-        userName.setText("jssjsj");
+    private Label UserName ;
+    public void setUserName(String nome) {
+        UserName.setText(nome);
     }
-
-
 }

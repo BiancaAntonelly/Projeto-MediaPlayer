@@ -6,9 +6,9 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaUsuarioController">
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="629.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaUsuarioController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="600.0">
+      <MenuBar prefHeight="25.0" prefWidth="629.0">
         <menus>
           <Menu mnemonicParsing="false" text="Files">
             <items>
@@ -32,7 +32,7 @@
             </Menu>
         </menus>
       </MenuBar>
-      <Label fx:id="UserName" alignment="BOTTOM_LEFT" layoutX="506.0" layoutY="131.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="76.0" style="-fx-font-weight: bold;" text="UserName" textFill="WHITE">
+      <Label fx:id="UserName" alignment="BOTTOM_LEFT" layoutX="537.0" layoutY="138.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="76.0" style="-fx-font-weight: bold;" text="UserName" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
@@ -40,32 +40,22 @@
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <AnchorPane layoutX="136.0" layoutY="39.0" prefHeight="300.0" prefWidth="358.0" style="-fx-background-color: Gainsboro;" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="92.0" layoutX="504.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
+      <AnchorPane layoutX="136.0" layoutY="39.0" prefHeight="300.0" prefWidth="375.0" style="-fx-background-color: Gainsboro;" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="92.0" layoutX="534.0" layoutY="39.0" stroke="BLACK" strokeType="INSIDE" width="82.0" />
       <Label alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="107.0" style="-fx-font-weight: bold;" text="PlayLists" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
-      <Accordion layoutX="14.0" layoutY="69.0" prefHeight="75.0" prefWidth="92.0">
-        <panes>
-          <TitledPane animated="false" text="untitled 1">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" text="untitled 2">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-          <TitledPane animated="false" prefHeight="24.0" prefWidth="105.0" text="untitled 3">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-            </content>
-          </TitledPane>
-        </panes>
-      </Accordion>
+      <Button alignment="CENTER" contentDisplay="RIGHT" layoutX="503.0" layoutY="177.0" mnemonicParsing="false" text="Add Diretory" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" />
+      <Button layoutX="532.0" layoutY="221.0" mnemonicParsing="false" text="Add File" />
+      <Button layoutX="575.0" layoutY="361.0" mnemonicParsing="false" text="Exit" />
+      <VBox layoutX="14.0" layoutY="70.0" prefHeight="227.0" prefWidth="100.0" style="-fx-background-color: Gainsboro;" />
+      <Button layoutX="17.0" layoutY="314.0" mnemonicParsing="false" text="Add PlayList" />
+      <Button fx:id="previous" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="previous" />
+      <Button layoutX="57.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="Button" />
+      <Button fx:id="next" layoutX="99.0" layoutY="362.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" text="next" />
+      <ProgressBar layoutX="138.0" layoutY="365.0" prefHeight="18.0" prefWidth="375.0" progress="0.0" />
    </children>
    <opaqueInsets>
       <Insets right="100.0" top="100.0" />

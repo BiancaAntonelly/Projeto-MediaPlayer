@@ -84,7 +84,11 @@ public class TelaDeLoginController {
                 try {
                         String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
 
-                        Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
+                        FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
+                        Parent root = loader.load();
+
+                        TelaUsuarioController telaUsuarioController = loader.getController();
+                        telaUsuarioController.setUserName(tfUsername.getText());
 
                         Stage stage = (Stage) criarContaButton.getScene().getWindow();
                         Scene scene = new Scene(root);
@@ -92,6 +96,7 @@ public class TelaDeLoginController {
                         stage.setTitle(title);
                         stage.show();
                 } catch (IOException e) {
+                        System.out.println(e);
                         e.printStackTrace();
                 }
         }

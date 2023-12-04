@@ -25,9 +25,12 @@ public class Teste {
         Diretorio diretorio = new Diretorio();
         List<Musica> musicas = diretorio.buscaMusica("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd\\musicas");
 
+        diretorio.criarDiretorio("marcos");
+
         for(Musica m: musicas) {
             System.out.println(m.getName() + " " + m.getDiretorio());
         }
+
 
         Playlist playList = new Playlist();
         playList.setMusicas(musicas);

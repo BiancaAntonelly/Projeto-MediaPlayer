@@ -45,17 +45,18 @@ public class TelaDeCadastroController {
 
     @FXML
     void criarConta(javafx.event.ActionEvent event) {
+        Integer id = 1;
         String email = emailField.getText();
         String username = usernameField.getText();
         String senha = senhaField.getText();
 
         if (usuarioComumCheckbox.isSelected()) {
-            UsuarioComum usuarioComum = new UsuarioComum(email, username, senha);
+            UsuarioComum usuarioComum = new UsuarioComum(id, email, username, senha);
             salvarUsuario(email, username, senha, "usuario comum");
         }
 
         if (usuarioVipCheckbox.isSelected()) {
-            UsuarioVip usuarioVip = new UsuarioVip(email, username, senha);
+            UsuarioVip usuarioVip = new UsuarioVip(id, email, username, senha);
             // Adicione lógica específica para usuários VIP, se necessário
             salvarUsuario(email, username, senha, "usuario vip");
         }

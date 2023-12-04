@@ -1,16 +1,27 @@
 package br.ufrn.imd.model;
 
 public abstract class Usuario {
+
+    private Integer id;
+
     private String email;
     private String username;
     private String password;
 
-    public Usuario(String email, String username, String password) {
+    public Usuario(Integer id, String email, String username, String password) {
+        this.id = id;
         this.email = email;
         this.username = username;
         this.password = password;
     }
 
+    public Integer getId () {
+        return id;
+    }
+
+    public void setId (Integer id) {
+        this.id = id;
+    }
 
     public String getEmail() {
         return email;
