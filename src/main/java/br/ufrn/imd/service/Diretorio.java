@@ -37,11 +37,16 @@ public class Diretorio {
         return musicas;
     }
 
-    public void criarDiretorio(String nome) throws IOException {
-        String dir = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\playlists\\" + nome + ".txt";
+    public void addDiretorio(int id, String nome) throws IOException {
+        String dir = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\diretorios.txt";
 
-        //verifica se o diretório existe
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(dir));
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(dir, true))) {
+            writer.write(id);
+            writer.newLine();
+            writer.write(nome);
+            writer.newLine();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

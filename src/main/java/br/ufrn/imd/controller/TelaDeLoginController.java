@@ -91,6 +91,8 @@ public class TelaDeLoginController {
                         telaUsuarioController.setUserName(tfUsername.getText());
 
                         Stage stage = (Stage) criarContaButton.getScene().getWindow();
+                        telaUsuarioController.setStage(stage);
+
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
                         stage.setTitle(title);
