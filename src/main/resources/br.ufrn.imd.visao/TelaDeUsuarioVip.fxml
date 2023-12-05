@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane nodeOrientation="LEFT_TO_RIGHT" prefHeight="400.0" prefWidth="629.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeUsuarioVipController">
+    <children>
+        <MenuBar prefHeight="25.0" prefWidth="629.0">
+            <menus>
+                <Menu mnemonicParsing="false" text="Files">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Player">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Delete" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="About" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Help">
+                    <items>
+                        <MenuItem mnemonicParsing="false" text="Close" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+        <Label fx:id="UserName" alignment="BOTTOM_LEFT" layoutX="536.0" layoutY="119.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="76.0" style="-fx-font-weight: bold;" text="UserName" textAlignment="CENTER" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+            <rotationAxis>
+                <Point3D x="1.0" y="1.0" z="1.0" />
+            </rotationAxis>
+        </Label>
+        <AnchorPane layoutX="136.0" layoutY="39.0" prefHeight="300.0" prefWidth="375.0" style="-fx-background-color: Gainsboro;" />
+        <Label alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="107.0" style="-fx-font-weight: bold;" text="PlayLists" textFill="WHITE">
+            <font>
+                <Font size="14.0" />
+            </font>
+        </Label>
+        <Button fx:id="addDiretory" alignment="CENTER" contentDisplay="RIGHT" layoutX="503.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleAddDiretory" text="Add Diretory" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" />
+        <Button layoutX="532.0" layoutY="221.0" mnemonicParsing="false" text="Add Song" />
+        <Button fx:id="exit" layoutX="575.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
+        <VBox fx:id="panelPlayList" layoutX="14.0" layoutY="70.0" prefHeight="227.0" prefWidth="100.0" style="-fx-background-color: Gainsboro;" />
+        <Button layoutX="17.0" layoutY="314.0" mnemonicParsing="false" text="Add PlayList" />
+        <Button fx:id="previous" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="&lt;&lt;" />
+        <Button layoutX="57.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="l&gt;" />
+        <ProgressBar layoutX="138.0" layoutY="365.0" prefHeight="18.0" prefWidth="375.0" progress="0.0" />
+        <Button fx:id="previous1" layoutX="97.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="&gt;&gt;" />
+        <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="532.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../java/br/ufrn/imd/img/user.png" />
+            </image></ImageView>
+    </children>
+    <opaqueInsets>
+        <Insets right="100.0" top="100.0" />
+    </opaqueInsets>
+</AnchorPane>

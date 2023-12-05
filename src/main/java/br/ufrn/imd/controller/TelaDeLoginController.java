@@ -45,21 +45,39 @@ public class TelaDeLoginController {
                 String username = tfUsername.getText().toLowerCase();
                 String senha = pfSenha.getText();
 
-                if (autenticarUsuario(username, senha)) {
-                        carregarPagina("br.ufrn.imd.visao/TelaUsuario.fxml", "Tela de Inicio");
+                String tipoUsuario = autenticarUsuario(username, senha);
+
+                if (tipoUsuario != null) {
+                        String fxmlPath;
+                        String title;
+
+                        if ("usuario comum".equals(tipoUsuario)) {
+                                fxmlPath = "br.ufrn.imd.visao\\TelaDeUsuarioComum.fxml";
+                                title = "Tela de Inicio - Usuário Comum";
+                        } else if ("usuario vip".equals(tipoUsuario)) {
+                                fxmlPath = "br.ufrn.imd.visao\\TelaDeUsuarioVip.fxml";
+                                title = "Tela de Inicio - Usuário Vip";
+                        } else {
+                                mensagemErro.setVisible(true);
+                                mensagemErro.setText("Tipo de usuário não reconhecido.");
+                                return;
+                        }
+
+                        carregarPagina(fxmlPath, title);
                 } else {
                         mensagemErro.setVisible(true);
                         mensagemErro.setText("Nome de usuário ou senha incorretos. Tente novamente.");
                 }
         }
 
+
         @FXML
         private void handleCriarConta() {
                 carregarPagina("TelaDeCadastro.fxml", "Cadastro");
         }
 
-        private boolean autenticarUsuario(String username, String senha) {
-                Path usuariosPath = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+        private String autenticarUsuario(String username, String senha) {
+                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
 
                 try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
                         String email, usuario, senhaArmazenada, tipoUsuario;
@@ -70,28 +88,30 @@ public class TelaDeLoginController {
                                 tipoUsuario = reader.readLine();
 
                                 if (usuario.equals(username) && senha.equals(senhaArmazenada)) {
-                                        return true; // Nome de usuário e senha coincidem
+                                        return tipoUsuario;
                                 }
                         }
                 } catch (IOException e) {
                         e.printStackTrace();
                 }
-                return false;
+                return null;
         }
+
 
 
         private void carregarPagina(String fxmlPath, String title) {
                 try {
-                        String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
 
                         FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
                         Parent root = loader.load();
 
-                        TelaUsuarioController telaUsuarioController = loader.getController();
-                        telaUsuarioController.setUserName(tfUsername.getText());
+                        TelaDeUsuarioComumController telaUsuarioComumController = loader.getController();
+                        telaUsuarioComumController.setUserName(tfUsername.getText());
 
                         Stage stage = (Stage) criarContaButton.getScene().getWindow();
-                        telaUsuarioController.setStage(stage);
+                        telaUsuarioComumController.setStage(stage);
 
                         Scene scene = new Scene(root);
                         stage.setScene(scene);
