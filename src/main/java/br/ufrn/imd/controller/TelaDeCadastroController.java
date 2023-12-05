@@ -2,6 +2,7 @@ package br.ufrn.imd.controller;
 
 import br.ufrn.imd.model.UsuarioComum;
 import br.ufrn.imd.model.UsuarioVip;
+import br.ufrn.imd.service.GeradorDeId;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -37,6 +38,8 @@ public class TelaDeCadastroController {
     @FXML
     private Button criarContaButton;
 
+    private GeradorDeId geradorDeId = new GeradorDeId();
+
     @FXML
     void initialize() {
         // Adiciona um listener para o evento de clique do botão
@@ -45,7 +48,7 @@ public class TelaDeCadastroController {
 
     @FXML
     void criarConta(javafx.event.ActionEvent event) {
-        Integer id = 1;
+        String id = geradorDeId.gerarIdAleatorio() ;
         String email = emailField.getText();
         String username = usernameField.getText();
         String senha = senhaField.getText();

@@ -6,7 +6,7 @@ import java.util.Map;
 public class UsuarioVip extends Usuario {
     private Map<String, Playlist> playlists;
 
-    public UsuarioVip(Integer id, String email, String username, String password) {
+    public UsuarioVip(String id, String email, String username, String password) {
         super(id, email, username, password);
         this.playlists = new HashMap<>();
     }

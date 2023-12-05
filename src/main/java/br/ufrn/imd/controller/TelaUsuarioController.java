@@ -30,7 +30,7 @@ public class TelaUsuarioController {
 
     @FXML
     public void handleAddDiretory() throws IOException {
-        diretorio.addDiretorio(3, "nome");
+        diretorio.openDiretorio();
     }
     public void setStage(Stage stage) {
         this.stage = stage;

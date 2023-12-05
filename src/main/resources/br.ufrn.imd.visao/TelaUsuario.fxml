@@ -47,12 +47,12 @@
          </font>
       </Label>
       <Button fx:id="addDiretory" alignment="CENTER" contentDisplay="RIGHT" layoutX="503.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleAddDiretory" text="Add Diretory" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" />
-      <Button layoutX="532.0" layoutY="221.0" mnemonicParsing="false" text="Add File" />
+      <Button layoutX="532.0" layoutY="221.0" mnemonicParsing="false" text="Add Song" />
       <Button fx:id="exit" layoutX="575.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-      <VBox layoutX="14.0" layoutY="70.0" prefHeight="227.0" prefWidth="100.0" style="-fx-background-color: Gainsboro;" />
+      <VBox fx:id="panelPlayList" layoutX="14.0" layoutY="70.0" prefHeight="227.0" prefWidth="100.0" style="-fx-background-color: Gainsboro;" />
       <Button layoutX="17.0" layoutY="314.0" mnemonicParsing="false" text="Add PlayList" />
       <Button fx:id="previous" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="&lt;&lt;" />
-      <Button layoutX="57.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="=" />
+      <Button layoutX="57.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="l&gt;" />
       <ProgressBar layoutX="138.0" layoutY="365.0" prefHeight="18.0" prefWidth="375.0" progress="0.0" />
       <Button fx:id="previous1" layoutX="97.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="&gt;&gt;" />
       <ImageView fitHeight="71.0" fitWidth="76.0" layoutX="532.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">

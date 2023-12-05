@@ -11,6 +11,7 @@ import br.ufrn.imd.model.Musica;
 import br.ufrn.imd.model.PlayerMusica;
 import br.ufrn.imd.model.Playlist;
 import br.ufrn.imd.service.Diretorio;
+import br.ufrn.imd.service.GeradorDeId;
 
 public class Teste {
     

@@ -1,5 +1,6 @@
 package br.ufrn.imd.service;
 
+import java.awt.*;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -36,6 +37,14 @@ public class Diretorio {
 
         return musicas;
     }
+
+    public void openDiretorio() throws IOException {
+        String dir = "C:\\Users\\v_mar\\Music";
+
+        File file = new File(dir);
+        Desktop.getDesktop().open(file);
+    }
+
 
     public void addDiretorio(int id, String nome) throws IOException {
         String dir = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\diretorios.txt";

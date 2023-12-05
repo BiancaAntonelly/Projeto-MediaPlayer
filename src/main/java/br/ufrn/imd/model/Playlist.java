@@ -6,7 +6,7 @@ import java.util.List;
 import br.ufrn.imd.interfaces.PlayListInterface;
 
 public class Playlist implements PlayListInterface {
-    private String name, categoria;
+    private String name, caminho, id, idUsuario;
     private List<Musica> musicas = new ArrayList<>();
 
     public String getName() {
@@ -15,15 +15,28 @@ public class Playlist implements PlayListInterface {
     public void setName(String name) {
         this.name = name;
     }
-    public String getCategoria() {
-        return categoria;
+    public String getCaminho() {
+        return caminho;
     }
-    public void setCategoria(String categoria) {
-        this.categoria = categoria;
+    public void setCaminho(String caminho) {
+        this.caminho = caminho;
+    }
+    public String getId() {
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
+    }
+    public String getIdUsuario() {
+        return idUsuario;
+    }
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
     public List<Musica> getMusicas() {
         return musicas;
     }
+
     public void setMusicas(List<Musica> musicas) {
         this.musicas = musicas;
     }
