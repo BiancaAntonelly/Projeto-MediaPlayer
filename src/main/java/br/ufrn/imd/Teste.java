@@ -24,7 +24,7 @@ public class Teste {
     }
     public static void main(String args[]) throws UnsupportedAudioFileException, IOException, LineUnavailableException{
         Diretorio diretorio = new Diretorio();
-        List<Musica> musicas = diretorio.buscaMusica("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd\\musicas");
+        List<Musica> musicas = diretorio.diretoriosPorUser("e25ea6d9-a408-4910-bc3b-9d5dba029e78");
 
         //diretorio.criarDiretorio("marcos");
 

@@ -12,4 +12,8 @@ public class PlayListService {
 
         BufferedWriter writer = new BufferedWriter(new FileWriter(dir));
     }
+
+    public void buscarMusicas(String idUser) {
+
+    }
 }

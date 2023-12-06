@@ -1,20 +1,5 @@
-biancaantonellym@gmail.com
-bianca
-senha
-usuario comum
-marcantoni@gmail.com
-marcantoni
-senha
-usuario vip
-julliane@gmail.com
-jullliane
-senha
-usuario comum
-brenda@gmail.com
-brenda
-senha
-usuario vip
-vanessa.silva.700@ufrn.edu.br
+user@gmail
+e25ea6d9-a408-4910-bc3b-9d5dba029e78
 user
 user
 usuario comum

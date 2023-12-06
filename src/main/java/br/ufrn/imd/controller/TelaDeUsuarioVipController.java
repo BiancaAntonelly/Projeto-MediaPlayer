@@ -20,13 +20,15 @@ public class TelaDeUsuarioVipController {
     private Stage stage;
 
     private Diretorio diretorio = new Diretorio();
+
+    private String id;
     public void setUserName(String nome) {
         UserName.setText(nome);
     }
 
     @FXML
     public void handleAddDiretory() throws IOException {
-        diretorio.openDiretorio();
+        diretorio.openDiretorio(id);
     }
     public void setStage(Stage stage) {
         this.stage = stage;

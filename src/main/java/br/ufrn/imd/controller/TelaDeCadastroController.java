@@ -55,13 +55,13 @@ public class TelaDeCadastroController {
 
         if (usuarioComumCheckbox.isSelected()) {
             UsuarioComum usuarioComum = new UsuarioComum(id, email, username, senha);
-            salvarUsuario(email, username, senha, "usuario comum");
+            salvarUsuario(id, email, username, senha, "usuario comum");
         }
 
         if (usuarioVipCheckbox.isSelected()) {
             UsuarioVip usuarioVip = new UsuarioVip(id, email, username, senha);
             // Adicione lógica específica para usuários VIP, se necessário
-            salvarUsuario(email, username, senha, "usuario vip");
+            salvarUsuario(id, email, username, senha, "usuario vip");
         }
 
         carregarPaginaLogin();
@@ -69,13 +69,14 @@ public class TelaDeCadastroController {
         limparCampos();
     }
 
-    private void salvarUsuario(String email, String username, String senha, String tipoUsuario) {
-        //String caminhoArquivo = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
-        String caminhoArquivo = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
-
+    private void salvarUsuario(String id, String email, String username, String senha, String tipoUsuario) {
+        String caminhoArquivo = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
+       // String caminhoArquivo = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo, true))) {
             writer.write(email);
+            writer.newLine();
+            writer.write(id);
             writer.newLine();
             writer.write(username);
             writer.newLine();
@@ -92,8 +93,8 @@ public class TelaDeCadastroController {
 
     private void carregarPaginaLogin() {
         try {
-            //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
-            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
+            String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
+            //String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
 
             Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
 

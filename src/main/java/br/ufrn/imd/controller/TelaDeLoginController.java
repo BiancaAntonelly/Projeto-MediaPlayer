@@ -35,6 +35,8 @@ public class TelaDeLoginController {
         @FXML
         private Text mensagemErro;
 
+        private String id;
+
         @FXML
         private void initialize() {
                 mensagemErro.setVisible(false);
@@ -73,21 +75,24 @@ public class TelaDeLoginController {
 
         @FXML
         private void handleCriarConta() {
-                carregarPagina("TelaDeCadastro.fxml", "Cadastro");
+                carregarPagina("br.ufrn.imd.visao\\TelaDeCadastro.fxml", "Cadastro");
         }
 
         private String autenticarUsuario(String username, String senha) {
-                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+                Path usuariosPath = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+                //"C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt"
 
                 try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
-                        String email, usuario, senhaArmazenada, tipoUsuario;
+                        String email, id, usuario, senhaArmazenada, tipoUsuario;
 
                         while ((email = reader.readLine()) != null) {
+                                id = reader.readLine();
                                 usuario = reader.readLine().toLowerCase();
                                 senhaArmazenada = reader.readLine();
                                 tipoUsuario = reader.readLine();
 
                                 if (usuario.equals(username) && senha.equals(senhaArmazenada)) {
+                                        this.id = id;
                                         return tipoUsuario;
                                 }
                         }
@@ -101,14 +106,15 @@ public class TelaDeLoginController {
 
         private void carregarPagina(String fxmlPath, String title) {
                 try {
-                        //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
-                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+
+                        String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        //String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
 
                         FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
                         Parent root = loader.load();
 
                         TelaDeUsuarioComumController telaUsuarioComumController = loader.getController();
-                        telaUsuarioComumController.setUserName(tfUsername.getText());
+                        telaUsuarioComumController.setUser(id, tfUsername.getText());
 
                         Stage stage = (Stage) criarContaButton.getScene().getWindow();
                         telaUsuarioComumController.setStage(stage);

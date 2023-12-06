@@ -20,13 +20,16 @@ public class TelaDeUsuarioComumController {
     private Stage stage;
 
     private Diretorio diretorio = new Diretorio();
-    public void setUserName(String nome) {
-        UserName.setText(nome);
-    }
 
+    private String id;
+
+    public void setUser(String id, String name) {
+        this.id = id;
+        UserName.setText(name);
+    }
     @FXML
     public void handleAddDiretory() throws IOException {
-        diretorio.openDiretorio();
+        diretorio.openDiretorio(id);
     }
     public void setStage(Stage stage) {
         this.stage = stage;
