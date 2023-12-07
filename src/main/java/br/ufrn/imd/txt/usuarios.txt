@@ -3,3 +3,23 @@ e25ea6d9-a408-4910-bc3b-9d5dba029e78
 user
 user
 usuario comum
+bianca@gmail.com
+f67d8703-fa63-4056-a120-84f8835ac095
+bianca
+senha
+usuario comum
+vanessa@gmail.com
+348fedd7-e6d9-46c7-91de-60be05f43a80
+vanessa
+senha
+usuario comum
+marcantoni@gmail.com
+7591c2bc-d8f7-4014-a567-1286d236c582
+marcantoni
+
+usuario comum
+julliane@gmail.com
+eb7b1253-7ab6-48eb-b95b-f880dee48540
+julliane
+senha
+usuario comum

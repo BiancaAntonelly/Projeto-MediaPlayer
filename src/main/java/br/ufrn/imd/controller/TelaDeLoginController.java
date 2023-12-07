@@ -75,12 +75,12 @@ public class TelaDeLoginController {
 
         @FXML
         private void handleCriarConta() {
-                carregarPagina("br.ufrn.imd.visao\\TelaDeCadastro.fxml", "Cadastro");
+                carregarPaginaCadastro("br.ufrn.imd.visao\\TelaDeCadastro.fxml", "Cadastro");
         }
 
         private String autenticarUsuario(String username, String senha) {
-                Path usuariosPath = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
-                //"C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt"
+                //Path usuariosPath = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
+                Path usuariosPath = Paths.get("C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt");
 
                 try (BufferedReader reader = Files.newBufferedReader(usuariosPath)) {
                         String email, id, usuario, senhaArmazenada, tipoUsuario;
@@ -107,8 +107,8 @@ public class TelaDeLoginController {
         private void carregarPagina(String fxmlPath, String title) {
                 try {
 
-                        String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
-                        //String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
 
                         FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
                         Parent root = loader.load();
@@ -128,6 +128,28 @@ public class TelaDeLoginController {
                         e.printStackTrace();
                 }
         }
+        private void carregarPaginaCadastro(String fxmlPath, String title) {
+                try {
+                        //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+                        String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
+
+                        FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
+                        Parent root = loader.load();
+
+                        // Supondo que o controlador para TelaDeCadastro.fxml seja TelaDeCadastroController
+                        TelaDeCadastroController telaCadastroController = loader.getController();
+                        Stage stage = (Stage) criarContaButton.getScene().getWindow();
+
+                        Scene scene = new Scene(root);
+                        stage.setScene(scene);
+                        stage.setTitle(title);
+                        stage.show();
+                } catch (IOException e) {
+                        System.out.println(e);
+                        e.printStackTrace();
+                }
+        }
+
 
         private Usuario buscarUsuario(String name, String email) {
                 return  null;

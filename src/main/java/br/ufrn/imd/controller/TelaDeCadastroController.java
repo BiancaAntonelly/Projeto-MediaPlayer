@@ -68,10 +68,18 @@ public class TelaDeCadastroController {
 
         limparCampos();
     }
+    private String userId;
+    private String username;
 
+    public void setUser(String userId, String username) {
+        this.userId = userId;
+        this.username = username;
+
+        // Faça o que for necessário com as informações do usuário aqui
+    }
     private void salvarUsuario(String id, String email, String username, String senha, String tipoUsuario) {
-        String caminhoArquivo = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
-       // String caminhoArquivo = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
+        //String caminhoArquivo = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
+       String caminhoArquivo = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\usuarios.txt";
 
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(caminhoArquivo, true))) {
             writer.write(email);
@@ -93,8 +101,8 @@ public class TelaDeCadastroController {
 
     private void carregarPaginaLogin() {
         try {
-            String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
-            //String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
+            //String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
+            String caminhoFXML = "C:\\Users\\bianc\\OneDrive\\Documentos\\GitHub\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeInicio.fxml";
 
             Parent root = FXMLLoader.load(new File(caminhoFXML).toURI().toURL());
 
