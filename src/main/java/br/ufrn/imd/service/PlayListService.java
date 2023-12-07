@@ -13,9 +13,13 @@ public class PlayListService {
     public void criarPlayList(String nome, String id) throws IOException {
         String dir = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\playlists\\" + "playlist_" + nome + "_" + id + ".txt";
 
-        //verifica se o diretório existe
-
-        BufferedWriter writer = new BufferedWriter(new FileWriter(dir));
+        File file = new File(dir);
+        if(file.exists()) {
+            System.out.println("Não é possível criar a playList, pois já existe uma com esse nome");
+        } else {
+            BufferedWriter writer = new BufferedWriter(new FileWriter(dir));
+            System.out.println("PlayList criada com sucesso!");
+        }
     }
 
     public List<Playlist> buscarPlayListsPorUser(String idUser) {

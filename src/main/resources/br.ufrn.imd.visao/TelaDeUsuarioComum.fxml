@@ -58,7 +58,14 @@
             <Image url="@../../java/br/ufrn/imd/img/user.png" />
          </image></ImageView>
       <ListView fx:id="playListView" layoutX="15.0" layoutY="71.0" onMouseClicked="#handleCliqueMouse" prefHeight="232.0" prefWidth="101.0" />
-      <ListView fx:id="listaMusicasView" layoutX="138.0" layoutY="47.0" prefHeight="297.0" prefWidth="375.0" />
+      <ListView fx:id="listaMusicasView" layoutX="138.0" layoutY="47.0" onMouseClicked="#handleClickMusic" prefHeight="297.0" prefWidth="375.0" />
+      <Pane fx:id="paneMusica" layoutX="243.0" layoutY="124.0" nodeOrientation="RIGHT_TO_LEFT" prefHeight="152.0" prefWidth="198.0" style="-fx-background-color: #e6316f;" visible="false">
+         <children>
+            <Label layoutX="160.0" layoutY="27.0" text="Nome" />
+            <TextField fx:id="nameList" layoutX="12.0" layoutY="23.0" prefHeight="25.0" prefWidth="131.0" />
+            <Button fx:id="criarPlayList" layoutX="49.0" layoutY="76.0" mnemonicParsing="false" onAction="#handleCriarPlayList" text="Criar PlayList" />
+            <Label fx:id="feedBack" layoutX="75.0" layoutY="121.0" text="feedback" textFill="#fff9f9" visible="false" />
+         </children></Pane>
    </children>
    <opaqueInsets>
       <Insets right="100.0" top="100.0" />

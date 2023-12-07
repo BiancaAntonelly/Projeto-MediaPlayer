@@ -14,9 +14,9 @@ public class PlayerMusica {
     private boolean isPause = false;
     private int pos = 0;
 
-    public PlayerMusica(List<Musica> musicas){
+    public PlayerMusica(List<Musica> musicas, Musica musica){
         this.musicas = musicas;
-        this.musica = musicas.get(0);
+        this.musica = musica;
     }
 
     public void play(){

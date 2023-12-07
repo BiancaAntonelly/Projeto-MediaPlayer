@@ -36,12 +36,12 @@ public class Teste {
 
         playList.listarMusicas();
 
-        PlayerMusica playerMusica = new PlayerMusica(playList.getMusicas());
+       /* PlayerMusica playerMusica = new PlayerMusica(playList.getMusicas());
         playerMusica.play();
-        
+
         sleep();
- 
-        playerMusica.next();
+
+        playerMusica.next();*/
        
     }
 }

@@ -1,6 +1,7 @@
 package br.ufrn.imd.controller;
 
 import br.ufrn.imd.model.Musica;
+import br.ufrn.imd.model.PlayerMusica;
 import br.ufrn.imd.model.Playlist;
 import br.ufrn.imd.service.Diretorio;
 import br.ufrn.imd.service.PlayListService;
@@ -11,6 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
@@ -37,13 +39,20 @@ public class TelaDeUsuarioComumController {
     private Stage stage;
 
     @FXML
-    ListView<String> playListView;
+    private ListView<String> playListView;
 
     @FXML
     private ListView<String> listaMusicasView;
 
     @FXML
     private Button addSong;
+
+    @FXML
+    private TextField nameList;
+
+    @FXML
+    private Label feedBack;
+
     private Diretorio diretorio = new Diretorio();
 
     private String id;
@@ -54,7 +63,16 @@ public class TelaDeUsuarioComumController {
 
     private PlayListService playListService = new PlayListService();
 
+    private Playlist playListAtual = new Playlist();
+
     private String nomePlayList;
+
+    @FXML
+    private Pane paneMusica;
+
+    private String musicaAtual;
+
+    private PlayerMusica playerMusica;
 
     public void setUser(String id, String name) throws IOException {
         this.id = id;
@@ -91,6 +109,29 @@ public class TelaDeUsuarioComumController {
                 listarMusicas(nomePlayList);
         });
     }
+
+    @FXML void handleClickMusic() {
+        listaMusicasView.setOnMouseClicked(mouseEvent -> {
+            String selectedItem = listaMusicasView.getSelectionModel().getSelectedItem();
+            System.out.println("Musica selecionada: "+ selectedItem);
+            for (Playlist p: playlists) {
+               if(p.getName().equals(nomePlayList)) {
+                   playListAtual = p;
+               }
+            }
+
+
+            for (Musica m: playListAtual.getMusicas()
+                 ) {
+                if(m.getName().equals(selectedItem)){
+                    playerMusica = new PlayerMusica(playListAtual.getMusicas(), m);
+                    playerMusica.play();
+                }
+            }
+           // listarMusicas(nomePlayList);
+        });
+    }
+
 
     public void updatePlayList() {
         playlists = playListService.buscarPlayListsPorUser(id);
@@ -132,6 +173,13 @@ public class TelaDeUsuarioComumController {
 
     @FXML
     public void handleAddPlayList() {
+        paneMusica.setVisible(true);
+    }
+
+    @FXML
+    public void handleCriarPlayList() throws IOException, InterruptedException {
+        playListService.criarPlayList(nameList.getText(), id);
+        paneMusica.setVisible(false);
     }
 
 }
