@@ -1,14 +1,15 @@
 package br.ufrn.imd.model;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 import br.ufrn.imd.interfaces.PlayListInterface;
+import br.ufrn.imd.service.PlayListService;
 
 public class Playlist implements PlayListInterface {
     private String name, caminho, id, idUsuario;
     private List<Musica> musicas = new ArrayList<>();
-
     public String getName() {
         return name;
     }
@@ -41,7 +42,7 @@ public class Playlist implements PlayListInterface {
         this.musicas = musicas;
     }
     @Override
-    public void adicionarMusica(Musica musica) {
+    public void adicionarMusica(Musica musica) throws IOException {
         musicas.add(musica);
     }
 

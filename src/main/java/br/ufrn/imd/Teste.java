@@ -12,6 +12,7 @@ import br.ufrn.imd.model.PlayerMusica;
 import br.ufrn.imd.model.Playlist;
 import br.ufrn.imd.service.Diretorio;
 import br.ufrn.imd.service.GeradorDeId;
+import br.ufrn.imd.service.PlayListService;
 
 public class Teste {
     
@@ -26,11 +27,8 @@ public class Teste {
         Diretorio diretorio = new Diretorio();
         List<Musica> musicas = diretorio.diretoriosPorUser("e25ea6d9-a408-4910-bc3b-9d5dba029e78");
 
-        //diretorio.criarDiretorio("marcos");
-
-        for(Musica m: musicas) {
-            System.out.println(m.getName() + " " + m.getDiretorio());
-        }
+        PlayListService playListService = new PlayListService();
+        List<Playlist> listas =  playListService.buscarPlayListsPorUser("e25ea6d9-a408-4910-bc3b-9d5dba029e78");
 
 
         Playlist playList = new Playlist();

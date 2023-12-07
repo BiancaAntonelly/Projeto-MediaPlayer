@@ -40,16 +40,15 @@
             <Point3D x="1.0" y="1.0" z="1.0" />
          </rotationAxis>
       </Label>
-      <AnchorPane layoutX="136.0" layoutY="39.0" prefHeight="300.0" prefWidth="375.0" style="-fx-background-color: Gainsboro;" />
       <Label alignment="BOTTOM_LEFT" layoutX="14.0" layoutY="39.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="25.0" prefWidth="107.0" style="-fx-font-weight: bold;" text="PlayLists" textFill="WHITE">
          <font>
             <Font size="14.0" />
          </font>
       </Label>
       <Button fx:id="addDiretory" alignment="CENTER" contentDisplay="RIGHT" layoutX="503.0" layoutY="177.0" mnemonicParsing="false" onAction="#handleAddDiretory" text="Add Diretory" textAlignment="CENTER" AnchorPane.rightAnchor="12.0" />
-      <Button layoutX="532.0" layoutY="221.0" mnemonicParsing="false" text="Add Song" />
+      <Button fx:id="addSong" layoutX="532.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleAddSong" text="Add Song" />
       <Button fx:id="exit" layoutX="575.0" layoutY="361.0" mnemonicParsing="false" onAction="#handleExit" text="Exit" />
-      <Button layoutX="17.0" layoutY="314.0" mnemonicParsing="false" text="Add PlayList" />
+      <Button fx:id="addPlayList" layoutX="17.0" layoutY="314.0" mnemonicParsing="false" onAction="#handleAddPlayList" text="Add PlayList" />
       <Button fx:id="previous" layoutX="14.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="&lt;&lt;" />
       <Button layoutX="57.0" layoutY="361.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="35.0" text="l&gt;" />
       <ProgressBar layoutX="138.0" layoutY="365.0" prefHeight="18.0" prefWidth="375.0" progress="0.0" />
@@ -58,7 +57,8 @@
          <image>
             <Image url="@../../java/br/ufrn/imd/img/user.png" />
          </image></ImageView>
-      <ListView fx:id="playListView" layoutX="15.0" layoutY="71.0" prefHeight="232.0" prefWidth="101.0" />
+      <ListView fx:id="playListView" layoutX="15.0" layoutY="71.0" onMouseClicked="#handleCliqueMouse" prefHeight="232.0" prefWidth="101.0" />
+      <ListView fx:id="listaMusicasView" layoutX="138.0" layoutY="47.0" prefHeight="297.0" prefWidth="375.0" />
    </children>
    <opaqueInsets>
       <Insets right="100.0" top="100.0" />

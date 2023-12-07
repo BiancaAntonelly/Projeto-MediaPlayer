@@ -5,6 +5,9 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,21 +25,20 @@ public class Diretorio {
         return musica;
     }
 
-    public List<Musica> diretoriosPorUser(String idUSer) {
+    public List<Musica> diretoriosPorUser(String idUSer) throws IOException {
         List<Musica> musicas = new ArrayList<>();
 
-        File file = new File("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\diretorios");
+        Path path = Paths.get("C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\java\\br\\ufrn\\imd\\txt\\diretorios.txt");
+        List<String> linhas = Files.readAllLines(path);
 
-        File[] arquivos = file.listFiles();
-
-        if (arquivos != null) {  
-            for(File f: arquivos) {
-                if(f.isFile() && f.getName().toLowerCase().endsWith(".mp3")){
-                    musicas.add(fileToMusica(f));
-                }
+        for (String linha : linhas) {
+            List<String> split = List.of(linha.split(","));
+            if(split.get(1).equals(idUSer)){
+                Musica musica = new Musica();
+                musica.setDiretorio(split.get(1));
+                musica.setName(split.get(2));
+                musicas.add(musica);
             }
-        } else {
-            System.out.println("O diretório não existe ou não é um diretório válido.");
         }
 
         return musicas;
