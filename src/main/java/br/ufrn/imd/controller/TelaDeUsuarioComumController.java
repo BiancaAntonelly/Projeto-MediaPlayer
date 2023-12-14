@@ -70,6 +70,7 @@ public class TelaDeUsuarioComumController {
     @FXML
     private Pane paneMusica;
 
+
     private String musicaAtual;
 
     private PlayerMusica playerMusica = new PlayerMusica();
@@ -80,15 +81,31 @@ public class TelaDeUsuarioComumController {
         this.id = id;
         UserName.setText(name);
         updatePlayList();
-        //criarPlayList.setStyle("visibility: block");
-        musicas = playlists.get(0).getMusicas();
-        ObservableList<String> dadosDaListView2 = FXCollections.observableArrayList();
-        for (Musica m: musicas) {
-            dadosDaListView2.add(m.getName());
-        }
 
-        listaMusicasView.setItems(dadosDaListView2);
+        // Verifica se a lista de playlists não está vazia
+        if (!playlists.isEmpty()) {
+            Playlist playlistAtual = playlists.get(0);
+
+            // Verifica se a playlist atual contém músicas
+            if (playlistAtual != null && !playlistAtual.getMusicas().isEmpty()) {
+                musicas = playlistAtual.getMusicas();
+
+                ObservableList<String> dadosDaListView2 = FXCollections.observableArrayList();
+                for (Musica m : musicas) {
+                    dadosDaListView2.add(m.getName());
+                }
+
+                listaMusicasView.setItems(dadosDaListView2);
+            } else {
+                // Lógica para lidar com o caso em que a playlist atual está vazia
+                System.out.println("A playlist atual está vazia.");
+            }
+        } else {
+            // Lógica para lidar com o caso em que a lista de playlists está vazia
+            System.out.println("A lista de playlists está vazia.");
+        }
     }
+
 
     @FXML
     public void handleAddDiretory() throws IOException {
