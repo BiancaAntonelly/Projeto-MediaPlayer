@@ -8,32 +8,13 @@ a0c44e54-000a-4aaf-8fff-a7ab6e82a02b
 maria
 maria
 usuario comum
-<<<<<<< HEAD
 joana@gmail.com
 b81052f9-ddb8-472a-8170-547ef80cbd19
 joana
 joana
 usuario comum
-
-=======
-bianca@gmail.com
-f67d8703-fa63-4056-a120-84f8835ac095
-bianca
-senha
+carlos@gmail.com
+1c9b28c7-4c40-4a5e-adbe-58d7bcf209b4
+carlos
+carlos
 usuario comum
-vanessa@gmail.com
-348fedd7-e6d9-46c7-91de-60be05f43a80
-vanessa
-senha
-usuario comum
-marcantoni@gmail.com
-7591c2bc-d8f7-4014-a567-1286d236c582
-marcantoni
-
-usuario comum
-julliane@gmail.com
-eb7b1253-7ab6-48eb-b95b-f880dee48540
-julliane
-senha
-usuario comum
->>>>>>> bebfe50511c6a1afb1f10cb0fe7b7a8fd19e2be5
