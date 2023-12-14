@@ -72,7 +72,9 @@ public class TelaDeUsuarioComumController {
 
     private String musicaAtual;
 
-    private PlayerMusica playerMusica;
+    private PlayerMusica playerMusica = new PlayerMusica();
+
+    private boolean isPause = true;
 
     public void setUser(String id, String name) throws IOException {
         this.id = id;
@@ -98,6 +100,7 @@ public class TelaDeUsuarioComumController {
 
     @FXML
     public void handleExit() {
+        playerMusica.pause();
         stage.close();
     }
 
@@ -120,16 +123,55 @@ public class TelaDeUsuarioComumController {
                }
             }
 
-
-            for (Musica m: playListAtual.getMusicas()
-                 ) {
+            for (Musica m: playListAtual.getMusicas()) {
                 if(m.getName().equals(selectedItem)){
-                    playerMusica = new PlayerMusica(playListAtual.getMusicas(), m);
-                    playerMusica.play();
+                    playerMusica.setMusica(m);
+                    musicaAtual = selectedItem;
                 }
             }
            // listarMusicas(nomePlayList);
         });
+    }
+
+    @FXML
+    void handlePlayMusic () {
+        if(musicaAtual != null && isPause == true) {
+            playerMusica.play();
+            isPause = false;
+        } else {
+            isPause = true;
+            playerMusica.pause();
+        }
+    }
+
+    @FXML
+    void handleNext() {
+        if (musicaAtual != null) {
+            List<Musica> lista =  playListAtual.getMusicas();
+
+            for (int i = 0; i < lista.size(); i++) {
+                if(lista.get(i).getName().equals(musicaAtual) && i+1 < lista.size()) {
+                    playerMusica.setMusica(lista.get(i + 1));
+                    musicaAtual = lista.get(i + 1).getName();
+                }
+            }
+            playerMusica.play();
+        }
+    }
+
+    @FXML
+    void handlePrevious () {
+        if (musicaAtual != null) {
+            List<Musica> lista =  playListAtual.getMusicas();
+
+            for (int i = 0; i < lista.size(); i++) {
+                if(lista.get(i).getName().equals(musicaAtual) && i-1 < 0 && i-1 > 0) {
+                    playerMusica.setMusica(lista.get(i - 1));
+                    musicaAtual = lista.get(i - 1).getName();
+                }
+            }
+            playerMusica.play();
+        }
     }
 
 
@@ -138,7 +180,6 @@ public class TelaDeUsuarioComumController {
         ObservableList<String> dadosDaListView = FXCollections.observableArrayList();
 
         for (Playlist p: playlists) {
-            System.out.println(p.getMusicas());
             dadosDaListView.add(p.getName());
         }
 
@@ -181,5 +222,4 @@ public class TelaDeUsuarioComumController {
         playListService.criarPlayList(nameList.getText(), id);
         paneMusica.setVisible(false);
     }
-
 }

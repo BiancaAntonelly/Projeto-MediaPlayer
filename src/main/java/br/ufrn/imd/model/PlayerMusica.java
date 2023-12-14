@@ -9,17 +9,12 @@ import java.util.List;
 import javazoom.jl.player.Player;
 public class PlayerMusica {
     private Musica musica;
-    private List<Musica> musicas = new ArrayList<>();
     private Player player;
     private boolean isPause = false;
     private int pos = 0;
 
-    public PlayerMusica(List<Musica> musicas, Musica musica){
-        this.musicas = musicas;
-        this.musica = musica;
-    }
-
     public void play(){
+        pause();
         new Thread(() -> {
             try {
                 FileInputStream fileInputStream = new FileInputStream(musica.getDiretorio());
@@ -47,6 +42,11 @@ public class PlayerMusica {
         }
     }
 
+    public void setMusica(Musica musica) {
+        this.musica = musica;
+    }
+
+    /*
     public void next() {
         if(player != null) {
            try {
@@ -77,5 +77,5 @@ public class PlayerMusica {
                 System.out.println("Não foi possível voltar para a música anterior");
             }
         }
-    }
+    } */
 }

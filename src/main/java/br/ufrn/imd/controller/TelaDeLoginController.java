@@ -14,6 +14,7 @@ import javafx.stage.Stage;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -49,6 +50,7 @@ public class TelaDeLoginController {
 
                 String tipoUsuario = autenticarUsuario(username, senha);
 
+                System.out.println("tipo: " + tipoUsuario);
                 if (tipoUsuario != null) {
                         String fxmlPath;
                         String title;
@@ -65,17 +67,25 @@ public class TelaDeLoginController {
                                 return;
                         }
 
-                        carregarPagina(fxmlPath, title);
+                        carregarPagina(fxmlPath, title, tipoUsuario);
                 } else {
                         mensagemErro.setVisible(true);
                         mensagemErro.setText("Nome de usuário ou senha incorretos. Tente novamente.");
                 }
         }
 
-
         @FXML
-        private void handleCriarConta() {
-                carregarPagina("br.ufrn.imd.visao\\TelaDeCadastro.fxml", "Cadastro");
+        private void handleCriarConta() throws IOException {
+                String caminho = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\br.ufrn.imd.visao\\TelaDeCadastro.fxml";
+                FXMLLoader loader = new FXMLLoader(new File(caminho).toURI().toURL());
+                Parent root = loader.load();
+
+                Stage stage = (Stage) criarContaButton.getScene().getWindow();
+
+                Scene scene = new Scene(root);
+                stage.setScene(scene);
+                stage.setTitle("Cadastro");
+                stage.show();
         }
 
         private String autenticarUsuario(String username, String senha) {
@@ -91,12 +101,14 @@ public class TelaDeLoginController {
                                 senhaArmazenada = reader.readLine();
                                 tipoUsuario = reader.readLine();
 
+                                System.out.println("email: "+ email + " id: "+ id + " login: "+ usuario + " senha: "+ senhaArmazenada);
                                 if (usuario.equals(username) && senha.equals(senhaArmazenada)) {
                                         this.id = id;
                                         return tipoUsuario;
                                 }
                         }
                 } catch (IOException e) {
+
                         e.printStackTrace();
                 }
                 return null;
@@ -104,7 +116,7 @@ public class TelaDeLoginController {
 
 
 
-        private void carregarPagina(String fxmlPath, String title) {
+        private void carregarPagina(String fxmlPath, String title, String tipo) {
                 try {
 
                         String caminhoFXML = "C:\\Users\\v_mar\\Desktop\\MediaPlayer\\Projeto-MediaPlayer\\src\\main\\resources\\" + fxmlPath;
@@ -113,11 +125,20 @@ public class TelaDeLoginController {
                         FXMLLoader loader = new FXMLLoader(new File(caminhoFXML).toURI().toURL());
                         Parent root = loader.load();
 
-                        TelaDeUsuarioComumController telaUsuarioComumController = loader.getController();
-                        telaUsuarioComumController.setUser(id, tfUsername.getText());
+                        TelaDeUsuarioComumController telaUsuarioComumController = new TelaDeUsuarioComumController();
+                        TelaDeUsuarioVipController telaDeUsuarioVipController = new TelaDeUsuarioVipController();
 
                         Stage stage = (Stage) criarContaButton.getScene().getWindow();
-                        telaUsuarioComumController.setStage(stage);
+
+                        if(tipo.equals("usuario comum")) {
+                                 telaUsuarioComumController = loader.getController();
+                                telaUsuarioComumController.setUser(id, tfUsername.getText());
+                                telaUsuarioComumController.setStage(stage);
+                        } else if(tipo.equals("usuario vip")){
+                                telaDeUsuarioVipController = loader.getController();
+                                telaDeUsuarioVipController.setUser(id, tfUsername.getText());
+                                telaDeUsuarioVipController.setStage(stage);
+                        }
 
                         Scene scene = new Scene(root);
                         stage.setScene(scene);

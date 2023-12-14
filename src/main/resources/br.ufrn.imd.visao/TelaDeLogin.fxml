@@ -1,96 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/20" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeLoginController">
+<AnchorPane prefHeight="700.0" prefWidth="859.0" style="-fx-background-color: #e6316f;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeLoginController">
    <children>
-      <VBox layoutX="448.0" layoutY="139.0" prefHeight="421.0" prefWidth="415.0" style="-fx-background-color: #FFFFE0;">
+      <Pane layoutX="249.0" layoutY="77.0" prefHeight="512.0" prefWidth="421.0" style="-fx-background-color: white;">
          <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="           LOGIN" textAlignment="CENTER">
+            <Text layoutX="14.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="           LOGIN" textAlignment="CENTER">
                <font>
                   <Font size="44.0" />
                </font>
             </Text>
-            <VBox prefHeight="97.0" prefWidth="415.0">
-               <children>
-                  <Label text="Username:">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <TextField fx:id="tfUsername" prefHeight="42.0" prefWidth="415.0">
-                     <opaqueInsets>
-                        <Insets />
-                     </opaqueInsets>
-                     <VBox.margin>
-                        <Insets right="5.0" />
-                     </VBox.margin>
-                  </TextField>
-               </children>
-            </VBox>
-            <VBox layoutX="10.0" layoutY="69.0" prefHeight="97.0" prefWidth="415.0">
-               <children>
-                  <Label text="Senha:">
-                     <font>
-                        <Font size="20.0" />
-                     </font>
-                  </Label>
-                  <PasswordField fx:id="pfSenha" prefHeight="42.0" prefWidth="415.0">
-                     <VBox.margin>
-                        <Insets right="5.0" />
-                     </VBox.margin></PasswordField>
-               </children>
-            </VBox>
-            <Button fx:id="entrarButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" onAction="#handleEntrar" textAlignment="CENTER" textFill="WHITE">
+            <Label layoutX="39.0" layoutY="99.0" text="Username:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <TextField fx:id="tfUsername" layoutX="39.0" layoutY="147.0" prefHeight="42.0" prefWidth="342.0">
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+            </TextField>
+            <Button fx:id="entrarButton" layoutX="161.0" layoutY="335.0" mnemonicParsing="false" onAction="#handleEntrar" prefHeight="42.0" prefWidth="114.0" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Entrar" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
                <padding>
                   <Insets bottom="14.0" left="14.0" right="14.0" top="14.0" />
                </padding>
-               <VBox.margin>
-                  <Insets bottom="10.0" left="5.0" right="10.0" />
-               </VBox.margin>
             </Button>
-            <Label text="Caso não possua uma conta:" textAlignment="CENTER">
-               <font>
-                  <Font size="18.0" />
-               </font>
-               <VBox.margin>
-                  <Insets bottom="5.0" left="90.0" top="5.0" />
-               </VBox.margin>
-            </Label>
-            <Button fx:id="criarContaButton" mnemonicParsing="false" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE" onAction="#handleCriarConta" >
+            <Button fx:id="criarContaButton" layoutX="275.0" layoutY="449.0" mnemonicParsing="false" onAction="#handleCriarConta" style="-fx-background-radius: 18px; -fx-background-color: #e6316f;" text="Criar uma conta" textAlignment="CENTER" textFill="WHITE">
                <font>
                   <Font size="15.0" />
                </font>
-               <VBox.margin>
-                  <Insets left="135.0" top="5.0" />
-               </VBox.margin>
             </Button>
-            <Text fx:id="mensagemErro" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER">
+            <Label layoutX="31.0" layoutY="451.0" text="Caso não possua uma conta:" textAlignment="CENTER">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="39.0" layoutY="226.0" text="Senha:">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="pfSenha" layoutX="39.0" layoutY="268.0" prefHeight="42.0" prefWidth="342.0" />
+            <Text fx:id="mensagemErro" layoutX="54.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="" textAlignment="CENTER" wrappingWidth="328.271484375">
                <font>
                   <Font size="15.0" />
                </font>
             </Text>
-
-         </children>
-      </VBox>
-      <ImageView fitHeight="429.0" fitWidth="328.0" layoutX="120.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../java/br/ufrn/imd/img/Foto Media Player - Tela de Login.png" />
-         </image>
-      </ImageView>
+         </children></Pane>
    </children>
    <padding>
       <Insets bottom="100.0" left="100.0" right="100.0" top="100.0" />

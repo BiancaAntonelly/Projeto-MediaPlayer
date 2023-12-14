@@ -1,17 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="TelaDeInicioController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="333.0" prefWidth="253.0" style="-fx-border-radius: 10 10 10 10;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeInicioController">
+<AnchorPane fx:id="TelaDeInicioController" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="430.0" prefWidth="673.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.ufrn.imd.controller.TelaDeInicioController">
    <children>
-      <Button fx:id="criarContaButton" layoutX="73.0" layoutY="195.0" mnemonicParsing="false" onAction="#handleCriarContaButton" prefHeight="42.0" prefWidth="104.0" text="Cadastro" />
-      <Button fx:id="loginButton" layoutX="73.0" layoutY="125.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="42.0" prefWidth="104.0" text="Login" />
-      <Label layoutX="49.0" layoutY="30.0" prefHeight="42.0" prefWidth="164.0" text="Seja bem vindo!">
-         <font>
-            <Font size="21.0" />
-         </font>
-      </Label>
+      <Pane layoutX="267.0" layoutY="83.0" prefHeight="333.0" prefWidth="265.0" style="-fx-background-color: #e6316f;">
+         <children>
+            <Label layoutX="51.0" layoutY="32.0" prefHeight="20.0" prefWidth="164.0" style="-fx-font-weight: bold;" text="Seja bem vindo!" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+            <Button fx:id="criarContaButton" layoutX="67.0" layoutY="200.0" mnemonicParsing="false" onAction="#handleCriarContaButton" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: white; -fx-font-weight: bold;" text="Cadastro" textFill="#e6316f" />
+            <Button fx:id="loginButton" layoutX="64.0" layoutY="106.0" mnemonicParsing="false" onAction="#handleLoginButton" prefHeight="42.0" prefWidth="125.0" style="-fx-background-color: white; -fx-font-weight: bold;" text="Login" textFill="#e6316f" />
+            <ImageView fitHeight="56.0" fitWidth="69.0" layoutX="184.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../java/br/ufrn/imd/img/IconMusic.png" />
+               </image>
+            </ImageView>
+         </children>
+      </Pane>
    </children>
 </AnchorPane>
